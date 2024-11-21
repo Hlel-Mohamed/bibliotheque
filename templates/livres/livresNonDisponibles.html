@@ -1,0 +1,18 @@
+{% block title %}Livres non disponibles{% endblock %}
+{% block content %}
+    <h2>Livres non disponibles</h2>
+    <ul>
+        {% for livre in livres %}
+            <li>
+                <a href="{% url 'livres:livres_detail' livre.id %}" class="book-info">
+                    {{ livre.titre }}
+                </a>
+                par
+                <span class="book-info">
+                    {{ livre.auteur }}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'livres:livres_list' %}" class="btn btn-primary">Retour à la liste</a>
+{% endblock %}
